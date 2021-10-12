@@ -43,6 +43,12 @@ namespace Calculator
             this.buttonPlus = new System.Windows.Forms.Button();
             this.buttonEqual = new System.Windows.Forms.Button();
             this.labelResult = new System.Windows.Forms.Label();
+            this.buttonClear = new System.Windows.Forms.Button();
+            this.buttonMinus = new System.Windows.Forms.Button();
+            this.buttonMultiply = new System.Windows.Forms.Button();
+            this.buttonDivide = new System.Windows.Forms.Button();
+            this.buttonRemainder = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button0
@@ -238,16 +244,117 @@ namespace Calculator
             this.buttonEqual.Text = "=";
             this.buttonEqual.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // labelResult
             // 
             this.labelResult.BackColor = System.Drawing.Color.DimGray;
             this.labelResult.Font = new System.Drawing.Font("맑은 고딕", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelResult.Location = new System.Drawing.Point(19, 90);
-            this.labelResult.Name = "label1";
+            this.labelResult.Name = "labelResult";
             this.labelResult.Size = new System.Drawing.Size(325, 88);
             this.labelResult.TabIndex = 12;
             this.labelResult.Text = "0";
             this.labelResult.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // buttonClear
+            // 
+            this.buttonClear.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonClear.BackgroundImage")));
+            this.buttonClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonClear.Cursor = System.Windows.Forms.Cursors.Default;
+            this.buttonClear.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.buttonClear.FlatAppearance.BorderSize = 0;
+            this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClear.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonClear.ForeColor = System.Drawing.Color.White;
+            this.buttonClear.Location = new System.Drawing.Point(25, 226);
+            this.buttonClear.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(50, 41);
+            this.buttonClear.TabIndex = 13;
+            this.buttonClear.Text = "Clear";
+            this.buttonClear.UseVisualStyleBackColor = true;
+            // 
+            // buttonMinus
+            // 
+            this.buttonMinus.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonMinus.BackgroundImage")));
+            this.buttonMinus.Cursor = System.Windows.Forms.Cursors.Default;
+            this.buttonMinus.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.buttonMinus.FlatAppearance.BorderSize = 0;
+            this.buttonMinus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMinus.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonMinus.ForeColor = System.Drawing.Color.White;
+            this.buttonMinus.Location = new System.Drawing.Point(288, 464);
+            this.buttonMinus.Name = "buttonMinus";
+            this.buttonMinus.Size = new System.Drawing.Size(50, 46);
+            this.buttonMinus.TabIndex = 14;
+            this.buttonMinus.Text = "-";
+            this.buttonMinus.UseVisualStyleBackColor = true;
+            // 
+            // buttonMult
+            // 
+            this.buttonMultiply.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonMult.BackgroundImage")));
+            this.buttonMultiply.Cursor = System.Windows.Forms.Cursors.Default;
+            this.buttonMultiply.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.buttonMultiply.FlatAppearance.BorderSize = 0;
+            this.buttonMultiply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMultiply.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonMultiply.ForeColor = System.Drawing.Color.White;
+            this.buttonMultiply.Location = new System.Drawing.Point(225, 402);
+            this.buttonMultiply.Name = "buttonMult";
+            this.buttonMultiply.Size = new System.Drawing.Size(50, 46);
+            this.buttonMultiply.TabIndex = 15;
+            this.buttonMultiply.Text = "X";
+            this.buttonMultiply.UseVisualStyleBackColor = true;
+            // 
+            // buttonDivide
+            // 
+            this.buttonDivide.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonDivide.BackgroundImage")));
+            this.buttonDivide.Cursor = System.Windows.Forms.Cursors.Default;
+            this.buttonDivide.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.buttonDivide.FlatAppearance.BorderSize = 0;
+            this.buttonDivide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDivide.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonDivide.ForeColor = System.Drawing.Color.White;
+            this.buttonDivide.Location = new System.Drawing.Point(288, 402);
+            this.buttonDivide.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonDivide.Name = "buttonDivide";
+            this.buttonDivide.Size = new System.Drawing.Size(50, 46);
+            this.buttonDivide.TabIndex = 16;
+            this.buttonDivide.Text = "÷";
+            this.buttonDivide.UseVisualStyleBackColor = true;
+            // 
+            // buttonRemainder
+            // 
+            this.buttonRemainder.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonRemainder.BackgroundImage")));
+            this.buttonRemainder.Cursor = System.Windows.Forms.Cursors.Default;
+            this.buttonRemainder.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.buttonRemainder.FlatAppearance.BorderSize = 0;
+            this.buttonRemainder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRemainder.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonRemainder.ForeColor = System.Drawing.Color.White;
+            this.buttonRemainder.Location = new System.Drawing.Point(225, 340);
+            this.buttonRemainder.Name = "buttonRemainder";
+            this.buttonRemainder.Size = new System.Drawing.Size(50, 46);
+            this.buttonRemainder.TabIndex = 17;
+            this.buttonRemainder.Text = "%";
+            this.buttonRemainder.UseVisualStyleBackColor = true;
+            // 
+            // buttonDel
+            // 
+            this.buttonDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonDel.BackgroundImage")));
+            this.buttonDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonDelete.Cursor = System.Windows.Forms.Cursors.Default;
+            this.buttonDelete.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.buttonDelete.FlatAppearance.BorderSize = 0;
+            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDelete.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonDelete.ForeColor = System.Drawing.Color.White;
+            this.buttonDelete.Location = new System.Drawing.Point(152, 226);
+            this.buttonDelete.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonDelete.Name = "buttonDel";
+            this.buttonDelete.Size = new System.Drawing.Size(50, 41);
+            this.buttonDelete.TabIndex = 18;
+            this.buttonDelete.Text = "Del";
+            this.buttonDelete.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -255,6 +362,12 @@ namespace Calculator
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(359, 606);
+            this.Controls.Add(this.buttonDelete);
+            this.Controls.Add(this.buttonRemainder);
+            this.Controls.Add(this.buttonDivide);
+            this.Controls.Add(this.buttonMultiply);
+            this.Controls.Add(this.buttonMinus);
+            this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.labelResult);
             this.Controls.Add(this.buttonEqual);
             this.Controls.Add(this.buttonPlus);
@@ -287,9 +400,15 @@ namespace Calculator
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Label labelResult;
         private System.Windows.Forms.Button buttonPlus;
         private System.Windows.Forms.Button buttonEqual;
-        private System.Windows.Forms.Label labelResult;
+        private System.Windows.Forms.Button buttonClear;
+        private System.Windows.Forms.Button buttonMinus;
+        private System.Windows.Forms.Button buttonMultiply;
+        private System.Windows.Forms.Button buttonDivide;
+        private System.Windows.Forms.Button buttonRemainder;
+        private System.Windows.Forms.Button buttonDelete;
     }
 }
 

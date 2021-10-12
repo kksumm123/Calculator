@@ -29,6 +29,12 @@ namespace Calculator
             allButtons.Add(button9);
             allButtons.Add(buttonPlus);
             allButtons.Add(buttonEqual);
+            allButtons.Add(buttonClear);
+            allButtons.Add(buttonMinus);
+            allButtons.Add(buttonMultiply);
+            allButtons.Add(buttonDivide);
+            allButtons.Add(buttonRemainder);
+            allButtons.Add(buttonDelete);
 
             foreach (var item in allButtons)
             {
@@ -39,25 +45,25 @@ namespace Calculator
 
         private void SetButtonInit(Button button)
         {
-            button.Name = button.Text;
+            if (IsOperator(button.Text) == false)
+                button.Name = button.Text;
         }
 
         bool flagSetNextNumberToGroup1 = false;
-        int numberGroup1;
-        int numberGroup2;
+        double numberGroup1;
+        double numberGroup2;
         void OnClickButton(object sender, EventArgs e)
         {
             Button button = (Button)sender;
-            string currentButtonName = button.Name;
             // 숫자 눌렀는지 판단
-            if (int.TryParse(currentButtonName, out int temp))
+            if (int.TryParse(button.Name, out int temp))
             {
                 if (labelResult.Text == "0")
                     labelResult.Text = string.Empty;
 
                 if (flagSetNextNumberToGroup1)
                 {
-                    numberGroup1 = int.Parse(labelResult.Text);
+                    numberGroup1 = double.Parse(labelResult.Text);
                     labelResult.Text = button.Name;
                     flagSetNextNumberToGroup1 = false;
                     return;
@@ -65,31 +71,64 @@ namespace Calculator
 
                 labelResult.Text += button.Name;
                 labelResult.Text = CutCommaString(labelResult.Text);
-                int number = int.Parse(labelResult.Text);
+                double number = double.Parse(labelResult.Text);
                 labelResult.Text = $"{number:N0}";
                 //labelResult.Text += $"{string.Format("{0:N0}", number)}";
                 return;
             }
-            else if (currentButtonName == buttonPlus.Name)
-            { // 플러스 버튼
 
+            if (IsOperator(button.Text))
+            { // 연산자 버튼
                 // 다음에 숫자 버튼 누르면 labelResult에 있는 숫자를 숫자그룹1에 넣고 label 지우기 
                 flagSetNextNumberToGroup1 = true;
+                operatorStr = button.Text;
                 return;
             }
-            else if (currentButtonName == buttonEqual.Name)
-            { // 이퀄 버튼
 
-                numberGroup2 = int.Parse(labelResult.Text);
-                int resultNumber = numberGroup1 + numberGroup2;
+            if (button.Name == buttonEqual.Name)
+            { // 이퀄 버튼
+                // 눌린 숫자들 가지고 계산
+                numberGroup2 = double.Parse(labelResult.Text);
+                double resultNumber = Calculator(numberGroup1, numberGroup2, operatorStr);
                 labelResult.Text = $"{resultNumber:N0}";
                 return;
             }
+            else if (button.Name == buttonClear.Name)
+            { // 초기화 버튼
+                labelResult.Text = "0";
+                flagSetNextNumberToGroup1 = false;
+                numberGroup1 = 0;
+                numberGroup2 = 0;
+                return;
+            }
+        }
+
+        string operatorStr;
+        private double Calculator(double numberGroup1, double numberGroup2, string operatorStr)
+        {
+            switch(operatorStr)
+            {
+                case "+": return numberGroup1 + numberGroup2;
+                case "-": return numberGroup1 - numberGroup2;
+                case "X": return numberGroup1 * numberGroup2;
+                case "÷": return numberGroup1 / numberGroup2;
+                case "%": return numberGroup1 % numberGroup2;
+            }
+
+            return 0;
         }
 
         string CutCommaString(string str)
         {
             return str.Replace(",", "");
+        }
+        bool IsOperator(string inputChar)
+        {
+            return (inputChar == "+")
+                || (inputChar == "-")
+                || (inputChar == "÷")
+                || (inputChar == "%")
+                || (inputChar == "X");
         }
     }
 }
