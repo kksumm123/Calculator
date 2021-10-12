@@ -32,7 +32,7 @@ namespace Calculator
 
             foreach (var item in allButtons)
             {
-                item.Click += ClickButtonEvent;
+                item.Click += OnClickButton;
                 SetButtonInit(item);
             }
         }
@@ -42,7 +42,7 @@ namespace Calculator
             button.Name = button.Text;
         }
 
-        void ClickButtonEvent(object sender, EventArgs e)
+        void OnClickButton(object sender, EventArgs e)
         {
             Button button = (Button)sender;
             MessageBox.Show(button.Name);
