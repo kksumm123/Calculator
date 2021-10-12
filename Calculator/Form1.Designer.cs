@@ -35,9 +35,9 @@ namespace Calculator
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(157, 71);
+            this.button1.Location = new System.Drawing.Point(185, 138);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(42, 36);
+            this.button1.Size = new System.Drawing.Size(53, 43);
             this.button1.TabIndex = 0;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
@@ -49,8 +49,9 @@ namespace Calculator
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(359, 606);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "kksumm123@gmail.com";
             this.ResumeLayout(false);
 
         }
