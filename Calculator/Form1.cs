@@ -35,6 +35,8 @@ namespace Calculator
             allButtons.Add(buttonDivide);
             allButtons.Add(buttonRemainder);
             allButtons.Add(buttonDelete);
+            allButtons.Add(buttonDot);
+            allButtons.Add(buttonPlusMinus);
 
             foreach (var item in allButtons)
             {
@@ -77,14 +79,6 @@ namespace Calculator
                 return;
             }
 
-            if (IsOperator(button.Text))
-            { // 연산자 버튼
-                // 다음에 숫자 버튼 누르면 labelResult에 있는 숫자를 숫자그룹1에 넣고 label 지우기 
-                flagSetNextNumberToGroup1 = true;
-                operatorStr = button.Text;
-                return;
-            }
-
             if (button.Name == buttonEqual.Name)
             { // 이퀄 버튼
                 // 눌린 숫자들 가지고 계산
@@ -99,6 +93,22 @@ namespace Calculator
                 flagSetNextNumberToGroup1 = false;
                 numberGroup1 = 0;
                 numberGroup2 = 0;
+                return;
+            }
+            else if (button.Name == buttonPlusMinus.Name)
+            {
+                labelResult.Text = CutCommaString(labelResult.Text);
+                double number = double.Parse(labelResult.Text);
+                number *= -1;
+                labelResult.Text = $"{number:N0}";
+                return;
+            }
+
+            if (IsOperator(button.Text))
+            { // 연산자 버튼
+                // 다음에 숫자 버튼 누르면 labelResult에 있는 숫자를 숫자그룹1에 넣고 label 지우기 
+                flagSetNextNumberToGroup1 = true;
+                operatorStr = button.Text;
                 return;
             }
         }
@@ -128,7 +138,8 @@ namespace Calculator
                 || (inputChar == "-")
                 || (inputChar == "÷")
                 || (inputChar == "%")
-                || (inputChar == "X");
+                || (inputChar == "X")
+                || (inputChar == "±");
         }
     }
 }
