@@ -45,7 +45,7 @@ namespace Calculator
         void OnClickButton(object sender, EventArgs e)
         {
             Button button = (Button)sender;
-            MessageBox.Show(button.Name);
+            //MessageBox.Show(button.Name);
         }
     }
 }

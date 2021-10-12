@@ -42,7 +42,7 @@ namespace Calculator
             this.button9 = new System.Windows.Forms.Button();
             this.buttonPlus = new System.Windows.Forms.Button();
             this.buttonEqual = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelResult = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button0
@@ -240,14 +240,14 @@ namespace Calculator
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.DimGray;
-            this.label1.Font = new System.Drawing.Font("맑은 고딕", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(19, 90);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(325, 88);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "0";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelResult.BackColor = System.Drawing.Color.DimGray;
+            this.labelResult.Font = new System.Drawing.Font("맑은 고딕", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelResult.Location = new System.Drawing.Point(19, 90);
+            this.labelResult.Name = "label1";
+            this.labelResult.Size = new System.Drawing.Size(325, 88);
+            this.labelResult.TabIndex = 12;
+            this.labelResult.Text = "0";
+            this.labelResult.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Form1
             // 
@@ -255,7 +255,7 @@ namespace Calculator
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(359, 606);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelResult);
             this.Controls.Add(this.buttonEqual);
             this.Controls.Add(this.buttonPlus);
             this.Controls.Add(this.button9);
@@ -289,7 +289,7 @@ namespace Calculator
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button buttonPlus;
         private System.Windows.Forms.Button buttonEqual;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelResult;
     }
 }
 
