@@ -42,10 +42,54 @@ namespace Calculator
             button.Name = button.Text;
         }
 
+        bool flagSetNextNumberToGroup1 = false;
+        int numberGroup1;
+        int numberGroup2;
         void OnClickButton(object sender, EventArgs e)
         {
             Button button = (Button)sender;
-            //MessageBox.Show(button.Name);
+            string currentButtonName = button.Name;
+            // 숫자 눌렀는지 판단
+            if (int.TryParse(currentButtonName, out int temp))
+            {
+                if (labelResult.Text == "0")
+                    labelResult.Text = string.Empty;
+
+                if (flagSetNextNumberToGroup1)
+                {
+                    numberGroup1 = int.Parse(labelResult.Text);
+                    labelResult.Text = button.Name;
+                    flagSetNextNumberToGroup1 = false;
+                    return;
+                }
+
+                labelResult.Text += button.Name;
+                labelResult.Text = CutCommaString(labelResult.Text);
+                int number = int.Parse(labelResult.Text);
+                labelResult.Text = $"{number:N0}";
+                //labelResult.Text += $"{string.Format("{0:N0}", number)}";
+                return;
+            }
+            else if (currentButtonName == buttonPlus.Name)
+            { // 플러스 버튼
+
+                // 다음에 숫자 버튼 누르면 labelResult에 있는 숫자를 숫자그룹1에 넣고 label 지우기 
+                flagSetNextNumberToGroup1 = true;
+                return;
+            }
+            else if (currentButtonName == buttonEqual.Name)
+            { // 이퀄 버튼
+
+                numberGroup2 = int.Parse(labelResult.Text);
+                int resultNumber = numberGroup1 + numberGroup2;
+                labelResult.Text = $"{resultNumber:N0}";
+                return;
+            }
+        }
+
+        string CutCommaString(string str)
+        {
+            return str.Replace(",", "");
         }
     }
 }
